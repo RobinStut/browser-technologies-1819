@@ -25,7 +25,7 @@ Gebruikte bronnen:
 
 <details>
 <summary>Vertraging in functionalitijd</summary>
-![kieskeurig](kieskeurig.gif)
+![kieskeurig](https://raw.githubusercontent.com/RobinStut/browser-technologies-1819/master/kieskeurig.gif)
 </details>
 
 <details>
