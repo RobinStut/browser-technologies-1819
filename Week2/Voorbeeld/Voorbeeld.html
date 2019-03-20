@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="">
+      <fieldset>
+        <label for="textInput"
+          >Afstand
+          <select name="afstanden">
+            <option value="100">100 meter</option>
+            <option value="500">500 meter</option>
+            <option value="1000">1000 meter</option>
+            <option value="1500">1500 meter</option>
+            <option value="3000">3000 meter</option>
+            <option value="5000">5000 meter</option>
+            <option value="10000">10000 meter</option>
+          </select>
+        </label>
+      </fieldset>
+      <fieldset>
+        <label for="textInput"
+          >Naam of rugnummer
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            minlength="4"
+            maxlength="20"
+            size="20"
+          />
+        </label>
+      </fieldset>
+      <button>Bevestig persoon</button>
+    </form>
+  </body>
+</html>
