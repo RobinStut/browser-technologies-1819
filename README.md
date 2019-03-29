@@ -1,29 +1,45 @@
 # Browser Technologies @cmda-minor-web 1819
-//Robuuste, toegankelijke websites leren bouwen …
 
-In het vak Browser Technologies leer je hoe je goede, robuuste, toegankelijke websites maakt. Je gaat leren over Progressive Enhancement, Feature Detection en Fallback. Het web is er voor iedereen. In dit vak leer je hoe je daarvoor kan zorgen.
+## Use case
 
-Een van de mooiste principes van het web is dat het er echt is voor iedereen. Iedereen met een computer en een browser moet gebruik kunnen maken van het web. Het web is geen gecontroleerde (programmeer) omgeving. Je kan er gerust van uit gaan dat niemand precies hetzelfde te zien krijgt als wat jij ziet in jouw browser. Er zijn natuurlijk de technische beperkingen. Zoals - Afmetingen van de browser - Grootte van het apparaat - Manier van interactie - Kwaliteit van de hardware - Kwaliteit van het netwerk. En er zijn mensen. Allemaal verschillende mensen ...
+> Ik wil de scores van een sportwedstrijd kunnen bijhouden tijdens de wedstrijd.
 
-## Leerdoelen
-- _Wat is Progressive enhancement en hoe kun je dit toepassen._
-- _Hoe doe je Feature Detection en wat doe je als een techniek niet werkt of wordt ondersteund._
-- _Leren een Browser Technologies onderzoeken, testen en implementeren als enhancement._
+[Coach app](http://btstut.herokuapp.com/)
 
-[Rubric](https://docs.google.com/spreadsheets/d/1X8XBbblGAcoij4zPcbjZ5FHcQMusn1hc0NvNkzP5qx4/edit?usp=sharing)
+![score1](score1.png)
+![score2](score2.png)
+![score3](score3.png)
+![score4](score4.png)
+![score5](score5.png)
 
-## Programma
+## Toegankelijkheid
 
-### Week 1
-Doel: Het web is voor iedereen. Leren over Progressive enhancement en kennismaken met testen en het device lab.
-- [Les 1 - Progressive enhancement & Briefing Opdracht 1.1](https://docs.google.com/presentation/d/1j2N22palCDin_0jX89DItLj9kQy8YhwwuvcA_XnhjWQ/edit?usp=sharing)
-- [Opdracht 1.1 - Breek het web](Opdracht1.1.md)
-- [Opdracht 1.2 - Fork je OBA](Opdracht1.2.md)
+### Kleur & contrast
 
+Bij het checken van de kleurcontrast op [checkmycolours](http://www.checkmycolours.com/) was het resultaat goed. Er was een issue zodra er zwarte tekst op de blauwe kleur te zien is. Echter heb ik geen zwarte tekst op een blauwe achtergrond en hoef ik hier geen rekening mee te houden.
 
-### Week 2
-Doel: Wat laat je zien als een browser of gebruiker een 'enhancement' niet kan tonen of zien? Hoe doe je Feature Detection en wat doe je als een techniek niet werkt of wordt ondersteund?
+![colorcheck](colorcheck.png)
 
+### Muis
 
-### Week 3
-Doel: Verder werken aan de opdracht.
+De Coach app is volledig te gebruiken zonder muis. Wanneer er getapt wordt komt de gebruiker door elke form heen, en staan de meest voordehands liggende opties worden als eerst getoond.
+
+![muischeck](muischeck.png)
+
+### Geen javascript
+
+Doordat de app volledig server side werkt, is er geen javascript nodig voor de functionaliteit van de app
+
+##Feature detection
+
+De html die ik geschreven heb, heb ik laten checken met behulp van [doiuse](http://doiuse.herokuapp.com)
+In de html is er geen fout gevonden tijdens de checks
+
+![htmldoiuse](htmldoiuse.png)
+
+Bij de css heb ik ook de checks uitgevoerd met behulp van [doiuse](http://doiuse.herokuapp.com).
+
+- Wanneer er de melding van staat van het gebruik van REM of EM units, heb ik de pixel variant als fallback in de css geschreven.
+- De border-box heb ik geen fallback gegeven, dit omdat de shadow niet crusiaal is voor de functionaliteit.
+
+![cssdoiuse](cssdoiuse.png)
