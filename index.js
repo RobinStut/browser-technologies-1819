@@ -210,4 +210,4 @@ app.get("/lijstSamenstellen", (req, res) =>
   res.render("pages/lijstSamenstellen")
 );
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+app.listen(process.env.PORT || 3000);
