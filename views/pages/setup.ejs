@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <% include ../partials/head %>
+</head>
+
+<body>
+  <div class="wrapper">
+  <% include ../partials/nav %>
+  <section class="top">
+  <h2 class="name">
+    <%= name %>
+  </h2>
+  <h2 class="distance">
+    <% if (Number.isInteger(distance) === false) {%>
+    <%= distance %> meter
+    <% }%>
+  </h2>
+  </section>
+  <h3 class="time"><%= curr %></h3>
+
+
+
+  <table>
+    <tr>
+      <th>Afstand</th>
+      <th>Tijd</th>
+    </tr>
+  <% for (let i = 0; i < chosen.length; i ++) { %>
+<tr>
+
+  <td> <%=chosen[i].meter%> meter</td>
+ </tr>
+
+<% } %>
+
+<section class='startform'>
+  <form class="search" action="/started" method="POST" enctype="application/x-www-form-urlencoded">
+    <input type="hidden" value="<%= distance %>" name="distance">
+    <input type="hidden" value="<%= chosen %>" name="chosen">
+    <input type="hidden" value="<%= curr %>" name="curr">
+    <input type="hidden" value="<%= time %>" name="startTime">
+    <input type="hidden" value="<%= name %>" name="name">
+    <input type="hidden" value="<%= time %>" name="time">
+    <button id="ronde" type="submit">Start</button>
+  </form>
+</section>
+  <!-- <form class="search" action="/stop" method="POST" enctype="application/x-www-form-urlencoded">
+    <button id="stop" type="submit">Stop</button>
+  </form> -->
+
+  <% include ../partials/footer %>
+  </div>
+</body>
+
+</html>
