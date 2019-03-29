@@ -11,8 +11,8 @@ nav {
   display: block;
   padding: 0 32px 0 32px;
   padding: 0 2rem 0 2rem;
-  display: flex;
-  justify-content: center;
+  min-height: 40px;
+  text-align: center;
 }
 
 .emptyNav {
@@ -27,6 +27,7 @@ nav a {
   /* width: 100%; */
   /* text-align: center; */
   padding: 1.5rem;
+  line-height: 40px;
 }
 
 .wrapper {
@@ -36,8 +37,8 @@ nav a {
 }
 
 .top {
-  display: flex;
   justify-content: space-between;
+  min-height: 70px;
 }
 
 .top .name {
@@ -46,6 +47,7 @@ nav a {
   color: #4a4a4a;
   margin-left: 16px;
   margin-left: 1rem;
+  float: left;
 }
 
 .top .distance {
@@ -54,6 +56,7 @@ nav a {
   color: #4a4a4a;
   margin-right: 16px;
   margin-right: 1rem;
+  float: right;
 }
 
 .time {
@@ -98,9 +101,10 @@ tr td:nth-of-type(2) {
 }
 
 .startform {
-  display: flex;
+  display: block;
   justify-content: center;
   padding: 1rem 0;
+  text-align: center;
 }
 
 .startform button:nth-of-type(1) {
@@ -128,7 +132,7 @@ tr td:nth-of-type(2) {
 }
 
 .forms {
-  display: flex;
+  display: block;
   justify-content: center;
   padding: 1rem 0;
 }
@@ -141,6 +145,7 @@ tr td:nth-of-type(2) {
   padding: 1rem;
   border-radius: 5px;
   font-size: 1rem;
+  float: right;
 }
 
 .forms button:nth-of-type(2) {
@@ -150,6 +155,8 @@ tr td:nth-of-type(2) {
   border-color: #dc143c;
   color: white;
   font-size: 1rem;
+  padding: 1rem;
+  float: left;
 }
 
 .forms button:disabled {
