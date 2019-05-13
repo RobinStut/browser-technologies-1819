@@ -172,6 +172,7 @@ tr td:nth-of-type(2) {
   padding: 0 2rem;
   /* width: 100%; */
   text-align: center;
+  font-size: 31px;
 }
 
 fieldset {
@@ -191,4 +192,23 @@ fieldset select {
 fieldset input {
   float: right;
   width: 50%;
+}
+
+
+
+
+/* Confetti styling */
+#confetti-canvas {
+  position: absolute;
+  top: 0;
+}
+
+time {
+  display: block;
+  font-size: 1.17em;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
 }

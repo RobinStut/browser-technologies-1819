@@ -6,38 +6,33 @@
 </head>
 
 <body>
-  <% include ../partials/nav %>
+  <div class="wrapper">
+    <nav class="emptyNav"> </nav>
 
-  <section class="aanmelden">
-    <p>U kunt zich aanmelden door een mail met uw naam en telefoonnummer te sturen naar obamaatje@oba.nl. U kunt ook bellen naar 020- 52 30 960. Een medewerker van de OBA neemt dan contact met u op om een afspraak te maken voor een intakegesprek.
-    </p>
-    <p>
-      Na het intakegesprek wordt u ingeschreven en gaat de OBA op zoek naar een geschikte vrijwilliger. Wanneer u en de vrijwilliger een positieve kennismaking hebben gehad, worden jullie OBA Maatjes voor de duur van één jaar.</p>
-    <form action="https://www.oba.nl/service/lidmaatschap-en-tarieven/word-lid.html" class="small">
-      <input type="submit" value=" OBA lidmaatschap" />
+    <form class="search" action="/" method="POST" enctype="application/x-www-form-urlencoded">
+      <fieldset>
+        <label for="distance">
+          Afstand
+          <select name="distance" id="distance" required>
+            <option value="500">500 meter</option>
+            <option value="1000">1000 meter</option>
+            <option value="1500">1500 meter</option>
+            <option value="3000">3000 meter</option>
+            <option value="5000">5000 meter</option>
+            <option value="10000">10000 meter</option>
+          </select>
+        </label>
+      </fieldset>
+      <fieldset>
+        <label for="name">Naam:
+          <input type="text" id="name" name="user" required minlength="2" maxlength="20" size="20" />
+        </label>
+      </fieldset>
+      <button id="searchBtn" class="beginBtn" type="submit">Begin meting</button>
     </form>
-  </section>
 
-  <article class="aanmelden">
-    <h2>Aanmelden OBA Maatje intake</h2>
-    <form action="/">
-      <label for="voornaam">Voornaam</label>
-      <input type="input" name="size" id="voornaam" class="input" placeholder="Youssef" />
-      <label for="achternaam">Achternaam</label>
-      <input type="input" name="size" id="achternaam" class="input" placeholder="El Gebali" />
-      <label for="ledennummer">Ledennummer</label>
-      <input type="input" name="size" id="ledennummer" class="input" placeholder="OBA123456789" />
-      <label for="reden">Reden van aanvraag</label>
-      <textarea rows="4" cols="50" name="comment" form="usrform" id="reden">
-Typ hier uw tekst…</textarea>
-      <input type="submit" value="Verstuur aanvraag" class="big" />
-    </form>
-  </article>
-
-
-
-
-  <% include ../partials/footer %>
+    <% include ../partials/footer %>
+  </div>
 </body>
 
 </html>

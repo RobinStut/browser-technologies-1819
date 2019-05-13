@@ -7,89 +7,61 @@
 
 <body>
   <div class="wrapper">
-  <% include ../partials/nav %>
+    <% include ../partials/nav %>
 
-<section class='top'>
-  <h2 class="name">
-    <%= name %>
-  </h2>
-  <h2 class="distance">
-    <% if (Number.isInteger(distance) === false) {%>
-    <%= distance %> meter
-    <% }%>
-  </h2>
-  </section>
-  <h3 class="time">
-    <% if(progress === 0) {%> <%= curr %><% }%>
-    <% if(progress > 0) {%> <%= startTimeInMs %><% }%>
-  </h3>
+    <section class='top'>
+      <h2 class="name">
+        <%= data.naam %>
+      </h2>
+      <h2 class="distance">
+        <%= data.afstand %> meter
+      </h2>
+    </section>
+    <time class="time" id="<%= data.startTime %>">
+      <% if(data.progress === 0) {%> <%= data.startWith %><% }%>
+      <% if(data.progress > 0) {%> <%= data.startTimeInMs %><% }%>
+    </time>
+
+    <section class="<%= data.afstand %> <%= data.endTimeInMs %> WRwrapper" id="worldRecord">
+
+    </section>
 
 
-
-  <table>
-    <tr>
-      <th>Afstand</th>
-      <th>Tijd</th>
-    </tr>
-  <% for (let i = 0; i < chosen.length; i ++) { %>
-    <tr>
-  <td class="<%= i %>">
-    <%=chosen[i].meter%> meter</td>
-
-  <td>
-
-    <% if(test[i] === undefined){ %>
-
-    <% } %>
-    <% if(test[i]!== undefined){ %>
-    <%=test[i].tijd %>
-    <% } %>
-  </td>
-  </tr>
-  <% } %>
-
-  <% amountOfResults %>
+    <table>
+      <tr>
+        <th>Afstand</th>
+        <th>Tijd</th>
+      </tr>
+      <% for (let i = 0; i < data.chosenTrack.length; i ++) { %>
+      <tr>
+        <td class="<%= i %>">
+          <%=data.chosenTrack[i].meter%> meter</td>
+        <td class="clockedTime" value="<% if(data.progress > 0){ %><%=data.allTimes[i]%><% } %>">
+          <% if(data.progress > 0){ %>
+          <%=data.allTimes[i]%> sec</td>
+        <% } %>
+        </td>
+      </tr>
+      <% } %>
 
 
 
-  <% if(progress === chosen.length){%>
-  <%  if(endTime < 33610 && distance == 500){ %><p class='wr'>Ongeloveloos! Je hebt het <strong>wereldrecord</strong> van Pavel Koelizjnikov van <strong>33.61</strong> verbroken!!!</p><% } %>
-  <%  if(endTime < 66180 && distance == 1000){ %><p class='wr'>Zodeju! Je hebt het <strong>wereldrecord</strong> van Kjeld Nuis van <strong>1:06.18</strong> verbroken!!!</p><% } %>
-  <%  if(endTime < 100170 && distance == 1500){ %><p class='wr'>Krijg nou wat! Je hebt het <strong>wereldrecord</strong> van Kjeld Nuis van <strong>1:40.17</strong> verbroken!!!</p><% } %>
-  <%  if(endTime < 217280 && distance == 3000){ %><p class='wr'>HolyMoly! Je hebt het <strong>wereldrecord</strong> van Eskil Ervik van <strong>3:37.28</strong> verbroken!!!</p><% } %>
-  <%  if(endTime < 361860 && distance == 5000){ %><p class='wr'>Nee joh! Je hebt het <strong>wereldrecord</strong> van Ted-Jan Bloemen van <strong>6:02.86</strong> verbroken!!!</p><% } %>
-  <%  if(endTime < 756300 && distance == 10000){ %><p class='wr'>God allemachtig! Je hebt het <strong>wereldrecord</strong> van Ted-Jan Bloemen van <strong>12:36.30</strong> verbroken!!!</p><% } %>
-  <% } %>
-<section class='forms'>
-  <form class="newRound" action="/newRound" method="POST" enctype="application/x-www-form-urlencoded">
-    <input type="hidden" value="<%= distance %>" name="distance">
-    <% for (let i = 0; i < progress; i ++) { %>
 
 
-    <input type="hidden" value="<%= test[i].tijd %>" name="result<%= i+1 %>">
-    <% } %>
+      <section class='forms'>
+        <form class="newRound" action="/newRound" method="POST" enctype="application/x-www-form-urlencoded">
+          <button class="<%= data.endTime%>" id="ronde" type="submit" <% if(data.progress == data.chosenTrack.length){%>
+            disabled <% } %>>Ronde</button>
+        </form>
 
+        <form class="save" action="mailto:someone@example.com" method="POST"
+          enctype="application/x-www-form-urlencoded">
+          <input type="hidden" value="<%= data.naam %> <%= data.afstand %>" name=" ">
+          <button id="stop" type="submit">Opslaan</button>
+        </form>
+      </section>
 
-    <input type="hidden" value="<%= startTime %>" name="startTime">
-    <input type="hidden" value="<%= name %>" name="name">
-    <input type="hidden" value="<%= time %>" name="time">
-    <input type="hidden" value="<%= progress %>" name="progress">
-    <button id="ronde" type="submit" <% if(progress===chosen.length){%> disabled
-      <% } %> >Ronde</button>
-  </form>
-
-  <form class="save" action="mailto:someone@example.com" method="POST" enctype="application/x-www-form-urlencoded">
-    <input type="hidden" value="<%= name %> " name="naam">
-    <input type="hidden" value="<%= distance %> " name="afstand">
-    <% for (let i = 0; i < progress; i ++) { %>
-    <input type="hidden" value="<%= test[i].tijd %> " name="<%= chosen[i].meter %>meter">
-    <% } %>
-    <% if(progress > 0) {%> <input type="hidden" value="<%= startTimeInMs%> " name="FinishTijd"> <% }%>
-    <button id="stop" type="submit">Opslaan</button>
-  </form>
-</section>
-
-  <% include ../partials/footer %>
+      <% include ../partials/footer %>
   </div>
 </body>
 
