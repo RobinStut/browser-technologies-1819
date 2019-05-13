@@ -50,14 +50,14 @@
 
       <section class='forms'>
         <form class="newRound" action="/newRound" method="POST" enctype="application/x-www-form-urlencoded">
-          <button class="<%= data.endTime%>" id="ronde" type="submit" <% if(data.progress == data.chosenTrack.length){%>
-            disabled <% } %>>Ronde</button>
+          <button tabindex="1" class="<%= data.endTime%>" id="ronde" type="submit"
+            <% if(data.progress == data.chosenTrack.length){%> disabled <% } %>>Ronde</button>
         </form>
 
         <form class="save" action="mailto:someone@example.com" method="POST"
           enctype="application/x-www-form-urlencoded">
           <input type="hidden" value="<%= data.naam %> <%= data.afstand %>" name=" ">
-          <button id="stop" type="submit">Opslaan</button>
+          <button tabindex="2" id="stop" type="submit">Opslaan</button>
         </form>
       </section>
 
