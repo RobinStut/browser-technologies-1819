@@ -56,17 +56,17 @@
 
         <form class="save" action="mailto:someone@example.com" method="POST"
           enctype="application/x-www-form-urlencoded">
-          <input type="hidden" value="<%= data.naam %>" name="naam:">
-          <input type="hidden" value="<%= data.afstand %>" name="afstand:">
+          <input type="hidden" value="<%= data.naam %>" name="naam">
+          <input type="hidden" value="<%= data.afstand %>" name="afstand">
 
 
           <% for (let i = 0; i < data.chosenTrack.length; i ++) { %>
-          <input type="hidden" value="<%= data.allTimes[i] %>" name="<%= data.chosenTrack[i].meter%>:">
+          <input type="hidden" value="<%= data.allTimes[i] %>" name="metingOp<%= data.chosenTrack[i].meter%>">
           <% } %>
 
 
 
-          <input type="hidden" value="<%= data.endTime %>" name="eindtijd:">
+          <input type="hidden" value="<%= data.endTime %>" name="eindtijd">
 
 
 
